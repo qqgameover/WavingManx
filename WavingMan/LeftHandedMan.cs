@@ -16,12 +16,12 @@ namespace WavingMan
         {
             SetCursorTop();
             SetCursorLeft();
-            Console.WriteLine(_shouldWaveNextTime ? "\\o " : " o");
+            Console.WriteLine(ShouldWaveNextTime ? "\\o " : " o");
             SetCursorLeft();
-            Console.WriteLine(_shouldWaveNextTime ? " |\\" : " |");
+            Console.WriteLine(ShouldWaveNextTime ? " |\\" : " |");
             SetCursorLeft();
             Console.Write("/ \\");
-            _shouldWaveNextTime = !_shouldWaveNextTime;
+            ShouldWaveNextTime = !ShouldWaveNextTime;
         }
     }
 }
