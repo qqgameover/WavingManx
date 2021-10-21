@@ -6,8 +6,7 @@ namespace WavingMan
     {
         public Position Position { get; }
         public Position Speed { get; }
-        public bool IsLeftHanded { get; set; }
-        private bool _shouldWaveNextTime = false;
+        internal bool _shouldWaveNextTime = false;
 
         public Man(int x, int y, int dx, int dy)
         {
@@ -16,24 +15,24 @@ namespace WavingMan
             Speed = new Position(dx, dy);
         }
 
-        public void Show()
+        public virtual void Show()
         {
             SetCursorTop();
             SetCursorLeft();
-            Console.WriteLine(_shouldWaveNextTime ? (IsLeftHanded ? "\\o " : " o/") : " o");
+            Console.WriteLine(_shouldWaveNextTime ? " o/" : " o");
             SetCursorLeft();
-            Console.WriteLine(_shouldWaveNextTime ? (IsLeftHanded ? " |\\ " : "/|") : " |");
+            Console.WriteLine(_shouldWaveNextTime ?  "/|" : " |");
             SetCursorLeft();
             Console.Write("/ \\");
             _shouldWaveNextTime = !_shouldWaveNextTime;
         }
 
-        private void SetCursorTop()
+        internal void SetCursorTop()
         {
             Console.CursorTop = Math.Max(Position.Y, 0);
         }
 
-        private void SetCursorLeft()
+        internal void SetCursorLeft()
         {
             Console.CursorLeft = Math.Max(Position.X - 1, 0);
         }
