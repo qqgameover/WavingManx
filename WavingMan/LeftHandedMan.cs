@@ -12,16 +12,14 @@ namespace WavingMan
         {
         }
 
-        public override void Show()
+        protected override void WriteBody()
         {
-            SetCursorTop();
-            SetCursorLeft();
+            Console.WriteLine(ShouldWaveNextTime ? "/| " : " |");
+        }
+
+        protected override void WriteHead()
+        {
             Console.WriteLine(ShouldWaveNextTime ? " o/" : " o");
-             SetCursorLeft();
-            Console.WriteLine(ShouldWaveNextTime ?  "/| "  : " |");
-            SetCursorLeft();
-            Console.Write("/ \\");
-            ShouldWaveNextTime = !ShouldWaveNextTime;
         }
     }
 }

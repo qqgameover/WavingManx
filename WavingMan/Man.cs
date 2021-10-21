@@ -15,16 +15,31 @@ namespace WavingMan
             Speed = new Position(dx, dy);
         }
 
-        public virtual void Show()
+        public void Show()
         {
             SetCursorTop();
             SetCursorLeft();
-            Console.WriteLine(ShouldWaveNextTime ? "\\o " : " o");
+            WriteHead();
             SetCursorLeft();
-            Console.WriteLine(ShouldWaveNextTime ? " |\\" : " |");
+            WriteBody();
             SetCursorLeft();
-            Console.Write("/ \\");
+            WriteLegs();
             ShouldWaveNextTime = !ShouldWaveNextTime;
+        }
+
+        private static void WriteLegs()
+        {
+            Console.Write("/ \\");
+        }
+
+        protected virtual void WriteBody()
+        {
+            Console.WriteLine(ShouldWaveNextTime ? " |\\" : " |");
+        }
+
+        protected virtual void WriteHead()
+        {
+            Console.WriteLine(ShouldWaveNextTime ? "\\o " : " o");
         }
 
         internal void SetCursorTop()
