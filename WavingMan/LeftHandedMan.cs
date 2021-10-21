@@ -16,9 +16,9 @@ namespace WavingMan
         {
             SetCursorTop();
             SetCursorLeft();
-            Console.WriteLine(ShouldWaveNextTime ? "\\o " : " o");
-            SetCursorLeft();
-            Console.WriteLine(ShouldWaveNextTime ? " |\\" : " |");
+            Console.WriteLine(ShouldWaveNextTime ? " o/" : " o");
+             SetCursorLeft();
+            Console.WriteLine(ShouldWaveNextTime ?  "/| "  : " |");
             SetCursorLeft();
             Console.Write("/ \\");
             ShouldWaveNextTime = !ShouldWaveNextTime;
